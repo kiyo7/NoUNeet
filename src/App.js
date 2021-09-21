@@ -6,7 +6,7 @@ import SignUp from './pages/SignUp';
 import Home from './pages/Home';
 import AuthProvider from './AuthService';
 
-const App = () => {
+export const App = () => {
   return (
     <AuthProvider>
       <Router>
