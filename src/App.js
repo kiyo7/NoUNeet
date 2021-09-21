@@ -1,9 +1,21 @@
-//styles
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-//components
-import { Home } from './pages/Home';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import Home from './pages/Home';
+import AuthProvider from './AuthService';
 
-export const App = () => {
-  return <Home />;
+const App = () => {
+  return (
+    <AuthProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+        </Switch>
+      </Router>
+    </AuthProvider>
+  );
 };

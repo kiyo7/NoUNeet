@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Children } from "react";
+import React, { useState, useEffect, } from "react";
 import firebase from "./config/firebase";
 
 const AuthContext = React.createContext();
@@ -14,4 +14,4 @@ const AuthProvider = ({ children }) => {
   return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 };
 
-export { AuthContext, AuthProvider };
+export default { AuthContext, AuthProvider };
