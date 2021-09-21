@@ -1,14 +1,14 @@
-import React from "react";
+//components
+import React from 'react';
+import Login from './Login';
+import SignUp from './SignUp';
 
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-
-const Home = () => {
+export const Home = () => {
   return (
     <>
       <h1>Home</h1>
+      <Login></Login>
+      <SignUp></SignUp>
     </>
   );
 };
-
-export default Home;
