@@ -1,21 +1,21 @@
 // lib
-import React, { useState, useContext } from "react";
-import { Redirect, Link } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import { Redirect, Link } from 'react-router-dom';
 
 // material-ui
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 // import Container from "@material-ui/core/Container";
 
 // components
-import { AuthContext } from "../AuthService";
-import firebase from "../config/firebase";
+import { AuthContext } from '../AuthService';
+import firebase from '../config/firebase';
 
 export const Login = ({ history }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ export const Login = ({ history }) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        history.push("/");
+        history.push('/');
       })
       .catch((err) => {
         console.log(err);
@@ -40,9 +40,9 @@ export const Login = ({ history }) => {
     <Box
       sx={{
         marginTop: 100,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
       <Typography component="h1" variant="h5">
@@ -53,8 +53,8 @@ export const Login = ({ history }) => {
         onSubmit={handleSubmit}
         noValidate
         sx={{
-          display: "flex",
-          flexDirection: "column",
+          display: 'flex',
+          flexDirection: 'column',
           width: 300,
           marginBottom: 15,
         }}
