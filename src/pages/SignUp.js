@@ -1,22 +1,22 @@
 // lib
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // @material-ui
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
 // components
-import firebase from "../config/firebase";
-import back from "../images/background.jpeg";
-import styled from "styled-components";
+import firebase from '../config/firebase';
+import back from '../images/background.jpeg';
+import styled from 'styled-components';
 
 export const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,9 +38,9 @@ export const SignUp = () => {
       <Box
         sx={{
           paddingTop: 100,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
         <Typography component="h1" variant="h5">
@@ -51,8 +51,8 @@ export const SignUp = () => {
           onSubmit={handleSubmit}
           noValidate
           sx={{
-            display: "flex",
-            flexDirection: "column",
+            display: 'flex',
+            flexDirection: 'column',
             width: 300,
             marginBottom: 15,
           }}
@@ -104,10 +104,6 @@ export const SignUp = () => {
           </Button>
         </Box>
         <Link to="/login">ログイン画面へ</Link>
-        <br />
-        <Button type="submit" variant="contained" color="secondary">
-          登録
-        </Button>
       </Box>
     </SContainer>
   );
