@@ -104,7 +104,6 @@ export const SignUp = () => {
           </Button>
         </Box>
         <Link to="/login">ログイン画面へ</Link>
-        <br/>
       </Box>
     </SContainer>
   );
