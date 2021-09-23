@@ -41,13 +41,18 @@ export const SignUp = () => {
       }}
     >
       <Typography component="h1" variant="h5">
-        ユーザー登録
+        新規登録
       </Typography>
       <Box
         component="form"
         onSubmit={handleSubmit}
         noValidate
-        sx={{ display: 'flex', flexDirection: 'column' }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: 300,
+          marginBottom: 15,
+        }}
       >
         <TextField
           margin="normal"
@@ -91,13 +96,7 @@ export const SignUp = () => {
           }}
         />
         <br />
-        <Button
-          type="submit"
-          fullwidth="true"
-          variant="contained"
-          color="secondary"
-          sx={{ mt: 3, mb: 2 }}
-        >
+        <Button type="submit" variant="contained" color="secondary">
           登録
         </Button>
       </Box>

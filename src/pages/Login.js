@@ -52,7 +52,12 @@ export const Login = ({ history }) => {
         component="form"
         onSubmit={handleSubmit}
         noValidate
-        sx={{ display: 'flex', flexDirection: 'column' }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: 300,
+          marginBottom: 15,
+        }}
       >
         <TextField
           margin="normal"
@@ -82,14 +87,12 @@ export const Login = ({ history }) => {
             setPassword(e.target.value);
           }}
         />
-
+        <br />
         <Button
-          margin="normal"
           type="submit"
           fullwidth="true"
           variant="contained"
           color="secondary"
-          sx={{ mt: 3, mb: 2 }}
         >
           ログイン
         </Button>
