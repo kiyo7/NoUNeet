@@ -87,15 +87,16 @@ export const Login = ({ history }) => {
             setPassword(e.target.value);
           }}
         />
+        <br />
+        <Button
+          type="submit"
+          fullwidth="true"
+          variant="contained"
+          color="secondary"
+        >
+          ログイン
+        </Button>
       </Box>
-      <Button
-        type="submit"
-        fullwidth="true"
-        variant="contained"
-        color="secondary"
-      >
-        ログイン
-      </Button>
       <Link to="/signup">ユーザー登録画面へ</Link>
     </Box>
   );

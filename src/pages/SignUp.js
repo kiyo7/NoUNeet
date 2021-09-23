@@ -95,10 +95,11 @@ export const SignUp = () => {
             setPassword(e.target.value);
           }}
         />
-      </Box>
-      <Button type="submit" variant="contained" color="secondary" sizeLauge>
+        <br/>
+      <Button type="submit" variant="contained" color="secondary">
         登録
       </Button>
+      </Box>
       <Link to="/login">ログイン画面へ</Link>
     </Box>
   );
