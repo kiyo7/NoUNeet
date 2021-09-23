@@ -41,13 +41,18 @@ export const SignUp = () => {
       }}
     >
       <Typography component="h1" variant="h5">
-        ユーザー登録
+        新規登録
       </Typography>
       <Box
         component="form"
         onSubmit={handleSubmit}
         noValidate
-        sx={{ display: "flex", flexDirection: "column", width: 300 }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: 300,
+          marginBottom: 15,
+        }}
       >
         <TextField
           margin="normal"
@@ -90,16 +95,10 @@ export const SignUp = () => {
             setPassword(e.target.value);
           }}
         />
-        <Button
-          type="submit"
-          fullwidth="true"
-          variant="contained"
-          color="secondary"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          登録
-        </Button>
       </Box>
+      <Button type="submit" variant="contained" color="secondary" sizeLauge>
+        登録
+      </Button>
       <Link to="/login">ログイン画面へ</Link>
     </Box>
   );
