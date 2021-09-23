@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
 
 // components
 import firebase from "../config/firebase";
+import back from "../images/background.jpeg";
+import styled from "styled-components";
 
 export const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -32,75 +34,84 @@ export const SignUp = () => {
   };
 
   return (
-    <Box
-      sx={{
-        marginTop: 100,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <Typography component="h1" variant="h5">
-        新規登録
-      </Typography>
+    <SContainer>
       <Box
-        component="form"
-        onSubmit={handleSubmit}
-        noValidate
         sx={{
+          paddingTop: 100,
           display: "flex",
           flexDirection: "column",
-          width: 300,
-          marginBottom: 15,
+          alignItems: "center",
         }}
       >
-        <TextField
-          margin="normal"
-          required
-          fullwidth="true"
-          variant="outlined"
-          label="Name"
-          name="name"
-          autoComplete="name"
-          autoFocus
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
+        <Typography component="h1" variant="h5">
+          新規登録
+        </Typography>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          noValidate
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: 300,
+            marginBottom: 15,
           }}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullwidth="true"
-          variant="outlined"
-          label="E-mail"
-          name="e-mail"
-          autoComplete="e-mail"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <TextField
-          type="password"
-          margin="normal"
-          required
-          fullwidth="true"
-          variant="outlined"
-          label="Password"
-          name="password"
-          autoComplete="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <br/>
-      <Button type="submit" variant="contained" color="secondary">
-        登録
-      </Button>
+        >
+          <TextField
+            margin="normal"
+            required
+            fullwidth="true"
+            variant="outlined"
+            label="Name"
+            name="name"
+            autoComplete="name"
+            autoFocus
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullwidth="true"
+            variant="outlined"
+            label="E-mail"
+            name="e-mail"
+            autoComplete="e-mail"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <TextField
+            type="password"
+            margin="normal"
+            required
+            fullwidth="true"
+            variant="outlined"
+            label="Password"
+            name="password"
+            autoComplete="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <br />
+          <Button type="submit" variant="contained" color="secondary">
+            登録
+          </Button>
+        </Box>
+        <Link to="/login">ログイン画面へ</Link>
       </Box>
-      <Link to="/login">ログイン画面へ</Link>
-    </Box>
+    // </SContainer>
   );
 };
+const SContainer = styled.div`
+  background-image: url(${back});
+  max-width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+`;
