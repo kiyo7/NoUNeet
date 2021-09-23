@@ -1,11 +1,20 @@
-import { useState } from "react";
-import firebase from "../config/firebase";
-import {Link} from "react-router-dom"
+// lib
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+// @material-ui
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+
+// components
+import firebase from '../config/firebase';
 
 export const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,51 +32,76 @@ export const SignUp = () => {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            type="name"
-            id="name"
-            name="name"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <button type="submit">Sign Up</button>
-      </form>
-      <Link to="/login">Login</Link>
-    </div>
+    <Box
+      sx={{
+        marginTop: 100,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <Typography component="h1" variant="h5">
+        ユーザー登録
+      </Typography>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        noValidate
+        sx={{ display: 'flex', flexDirection: 'column' }}
+      >
+        <TextField
+          margin="normal"
+          required
+          fullwidth="true"
+          variant="outlined"
+          label="Name"
+          name="name"
+          autoComplete="name"
+          autoFocus
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
+        <TextField
+          margin="normal"
+          required
+          fullwidth="true"
+          variant="outlined"
+          label="E-mail"
+          name="e-mail"
+          autoComplete="e-mail"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <TextField
+          type="password"
+          margin="normal"
+          required
+          fullwidth="true"
+          variant="outlined"
+          label="Password"
+          name="password"
+          autoComplete="password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <br />
+        <Button
+          type="submit"
+          fullwidth="true"
+          variant="contained"
+          color="secondary"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          登録
+        </Button>
+      </Box>
+      <Link to="/login">ログイン画面へ</Link>
+    </Box>
   );
 };

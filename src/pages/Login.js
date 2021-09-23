@@ -1,11 +1,21 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../AuthService";
-import firebase from "../config/firebase";
-import { Redirect, Link } from "react-router-dom";
+// lib
+import React, { useState, useContext } from 'react';
+import { Redirect, Link } from 'react-router-dom';
+
+// material-ui
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+// import Container from "@material-ui/core/Container";
+
+// components
+import { AuthContext } from '../AuthService';
+import firebase from '../config/firebase';
 
 export const Login = ({ history }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +23,7 @@ export const Login = ({ history }) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        history.push("/");
+        history.push('/');
       })
       .catch((err) => {
         console.log(err);
@@ -27,38 +37,64 @@ export const Login = ({ history }) => {
   }
 
   return (
-    <>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      <Link to="/signup">SignUp</Link>
-    </>
+    <Box
+      sx={{
+        marginTop: 100,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <Typography component="h1" variant="h5">
+        ログイン
+      </Typography>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        noValidate
+        sx={{ display: 'flex', flexDirection: 'column' }}
+      >
+        <TextField
+          margin="normal"
+          required
+          fullwidth="true"
+          variant="outlined"
+          label="E-mail"
+          name="e-mail"
+          autoComplete="e-mail"
+          autoFocus
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <TextField
+          type="password"
+          margin="normal"
+          required
+          fullwidth="true"
+          variant="outlined"
+          label="Password"
+          name="password"
+          autoComplete="password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+
+        <Button
+          margin="normal"
+          type="submit"
+          fullwidth="true"
+          variant="contained"
+          color="secondary"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          ログイン
+        </Button>
+      </Box>
+      <Link to="/signup">ユーザー登録画面へ</Link>
+    </Box>
   );
 };
