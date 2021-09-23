@@ -1,21 +1,23 @@
 // lib
-import React, { useState, useContext } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { Redirect, Link } from "react-router-dom";
+import styled from "styled-components";
 
 // material-ui
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 // import Container from "@material-ui/core/Container";
 
 // components
-import { AuthContext } from '../AuthService';
-import firebase from '../config/firebase';
+import background from "../images/background.jpeg";
+import { AuthContext } from "../AuthService";
+import firebase from "../config/firebase";
 
 export const Login = ({ history }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,10 +25,11 @@ export const Login = ({ history }) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        history.push('/');
+        history.push("/");
       })
       .catch((err) => {
         console.log(err);
+        alert("メールアドレスまたはパスワードが間違っています。");
       });
   };
 
@@ -37,67 +40,76 @@ export const Login = ({ history }) => {
   }
 
   return (
-    <Box
-      sx={{
-        marginTop: 100,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
-      <Typography component="h1" variant="h5">
-        ログイン
-      </Typography>
+    <SContainer>
       <Box
-        component="form"
-        onSubmit={handleSubmit}
-        noValidate
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: 300,
-          marginBottom: 15,
+          paddingTop: 100,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        <TextField
-          margin="normal"
-          required
-          fullwidth="true"
-          variant="outlined"
-          label="E-mail"
-          name="e-mail"
-          autoComplete="e-mail"
-          autoFocus
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <TextField
-          type="password"
-          margin="normal"
-          required
-          fullwidth="true"
-          variant="outlined"
-          label="Password"
-          name="password"
-          autoComplete="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <br />
-        <Button
-          type="submit"
-          fullwidth="true"
-          variant="contained"
-          color="secondary"
-        >
+        <Typography component="h1" variant="h5">
           ログイン
-        </Button>
+        </Typography>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          noValidate
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: 300,
+            marginBottom: 15,
+          }}
+        >
+          <TextField
+            margin="normal"
+            required
+            fullwidth="true"
+            variant="outlined"
+            label="E-mail"
+            name="e-mail"
+            autoComplete="e-mail"
+            autoFocus
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <TextField
+            type="password"
+            margin="normal"
+            required
+            fullwidth="true"
+            variant="outlined"
+            label="Password"
+            name="password"
+            autoComplete="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <br />
+          <Button
+            type="submit"
+            fullwidth="true"
+            variant="contained"
+            color="secondary"
+          >
+            ログイン
+          </Button>
+        </Box>
+        <Link to="/signup">ユーザー登録画面へ</Link>
       </Box>
-      <Link to="/signup">ユーザー登録画面へ</Link>
-    </Box>
+    </SContainer>
   );
 };
+const SContainer = styled.div`
+  background-image: url(${background});
+  max-width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+`;
