@@ -1,5 +1,5 @@
 // lib
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
 import styled from "styled-components";
 import firebase from "../config/firebase";
@@ -19,30 +19,30 @@ export const SignUp = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
+  const user = useContext(AuthContext);
+
+  if (user) {
+    return <Redirect to="/" />;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(({ user }) => {
+        user.sendEmailVerification();
         user.updateProfile({
           displayName: name,
         });
       })
       .catch((err) => {
         console.log(err);
-        // alert(
-        //   "登録できませんでした。もう一度よく確認して登録をお願い致します。"
-        // );
-        alert(JSON.stringify(err.message));
+        alert(
+          "登録できませんでした。もう一度よく確認して登録をお願い致します。"
+        );
       });
   };
-
-  const user = useContext(AuthContext);
-
-  if (user) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <SContainer>
