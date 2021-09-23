@@ -1,43 +1,33 @@
 // lib
-import React, { useState, useContext } from "react";
-import { Redirect, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link  } from "react-router-dom";
 import styled from "styled-components";
+import firebase from "../config/firebase";
 
-// material-ui
-import TextField from "@material-ui/core/TextField";
+// @material-ui
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-// import Container from "@material-ui/core/Container";
 
 // components
 import background from "../images/background.jpeg";
-import { AuthContext } from "../AuthService";
-import firebase from "../config/firebase";
 
-export const Login = ({ history }) => {
+export const ResetPassword = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .sendPasswordResetEmail(email)
       .then(() => {
-        history.push("/");
+        console.log("success");
       })
       .catch((err) => {
         console.log(err);
-        alert("メールアドレスまたはパスワードが間違っています。");
       });
   };
-
-  const user = useContext(AuthContext);
-
-  if (user) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <SContainer>
@@ -50,7 +40,7 @@ export const Login = ({ history }) => {
         }}
       >
         <Typography component="h1" variant="h5">
-          ログイン
+          パスワードの再設定
         </Typography>
         <Box
           component="form"
@@ -67,43 +57,20 @@ export const Login = ({ history }) => {
             margin="normal"
             required
             fullwidth="true"
-            variant="outlined"
             label="E-mail"
             name="e-mail"
             autoComplete="e-mail"
-            autoFocus
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
-          <TextField
-            type="password"
-            margin="normal"
-            required
-            fullwidth="true"
-            variant="outlined"
-            label="Password"
-            name="password"
-            autoComplete="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
           <br />
-          <Button
-            type="submit"
-            fullwidth="true"
-            variant="contained"
-            color="secondary"
-          >
-            ログイン
+          <Button type="submit" variant="contained" color="secondary">
+            送信
           </Button>
         </Box>
-
-        <Link to="/resetpassword">パスワードを忘れましたか？</Link>
-        <Link to="/signup">ユーザー登録画面へ</Link>
+        <Link to="/login">ログイン画面へ</Link>
       </Box>
     </SContainer>
   );
