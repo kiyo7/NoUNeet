@@ -1,6 +1,17 @@
+// lib
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+// @material-ui
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+
+// components
 import firebase from "../config/firebase";
-import {Link} from "react-router-dom"
+import back from "../images/background.jpeg";
+import styled from "styled-components";
 
 export const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -23,51 +34,84 @@ export const SignUp = () => {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            type="name"
-            id="name"
+    <SContainer>
+      <Box
+        sx={{
+          paddingTop: 100,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography component="h1" variant="h5">
+          新規登録
+        </Typography>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          noValidate
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: 300,
+            marginBottom: 15,
+          }}
+        >
+          <TextField
+            margin="normal"
+            required
+            fullwidth="true"
+            variant="outlined"
+            label="Name"
             name="name"
-            placeholder="Name"
+            autoComplete="name"
+            autoFocus
             value={name}
             onChange={(e) => {
               setName(e.target.value);
             }}
           />
-        </div>
-        <div>
-          <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="email"
+          <TextField
+            margin="normal"
+            required
+            fullwidth="true"
+            variant="outlined"
+            label="E-mail"
+            name="e-mail"
+            autoComplete="e-mail"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
+          <TextField
             type="password"
-            id="password"
+            margin="normal"
+            required
+            fullwidth="true"
+            variant="outlined"
+            label="Password"
             name="password"
-            placeholder="password"
+            autoComplete="password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
-        </div>
-        <button type="submit">Sign Up</button>
-      </form>
-      <Link to="/login">Login</Link>
-    </div>
+          <br />
+          <Button type="submit" variant="contained" color="secondary">
+            登録
+          </Button>
+        </Box>
+        <Link to="/login">ログイン画面へ</Link>
+      </Box>
+    </SContainer>
   );
 };
+const SContainer = styled.div`
+  background-image: url(${back});
+  max-width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+`;

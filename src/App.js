@@ -1,10 +1,11 @@
+// lib
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+// components
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
-
 import { AuthProvider } from "./AuthService";
 import { LoggedInRoute } from "./LoggedInRoute";
 
