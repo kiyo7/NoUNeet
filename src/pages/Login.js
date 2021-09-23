@@ -52,7 +52,7 @@ export const Login = ({ history }) => {
         component="form"
         onSubmit={handleSubmit}
         noValidate
-        sx={{ display: "flex", flexDirection: "column" }}
+        sx={{ display: "flex", flexDirection: "column", width: 300 }}
       >
         <TextField
           margin="normal"
@@ -83,7 +83,7 @@ export const Login = ({ history }) => {
           }}
         />
         <Button
-          margin="normal"
+          // margin="normal"
           type="submit"
           fullwidth="true"
           variant="contained"

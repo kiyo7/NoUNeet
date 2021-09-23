@@ -47,7 +47,7 @@ export const SignUp = () => {
         component="form"
         onSubmit={handleSubmit}
         noValidate
-        sx={{ display: "flex", flexDirection: "column" }}
+        sx={{ display: "flex", flexDirection: "column", width: 300 }}
       >
         <TextField
           margin="normal"
