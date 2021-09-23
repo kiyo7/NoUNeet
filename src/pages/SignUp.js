@@ -104,10 +104,7 @@ export const SignUp = () => {
           </Button>
         </Box>
         <Link to="/login">ログイン画面へ</Link>
-        <br />
-        <Button type="submit" variant="contained" color="secondary">
-          登録
-        </Button>
+        <br/>
       </Box>
     </SContainer>
   );
