@@ -98,6 +98,7 @@ export const Login = ({ history }) => {
         </Button>
       </Box>
       <Link to="/signup">ユーザー登録画面へ</Link>
+      <Link to="/MapBox">Map</Link>
     </Box>
   );
 };
