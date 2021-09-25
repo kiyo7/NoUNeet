@@ -10,36 +10,16 @@ import background4 from "../images/com4.jpg";
 import background5 from "../images/com5.jpg";
 import background6 from "../images/com6.jpg";
 
-import Icon from "../images/com1.jpg";
-const IconComponent = () => {
-  return <img src={Icon} alt="アイコン" />;
-};
-const media = () => {
-  <MediaQuery query="(min-width: 767px)"></MediaQuery>;
-};
-
 export const Tile = () => {
   return (
     <>
       <SNavItem>
-        {/* <MediaQuery query="(max-width: 767px)"> */}
-        {/* <p>企業紹介</p> */}
-        {/* <SContainer /> */}
-        {/* <p>企業紹介</p> */}
         <SContainer1 />
-        {/* <Icon /> */}
-        {/* </SNavItem> */}
-
         <SContainer2 />
-        {/* <p>企業紹介</p> */}
         <SContainer3 />
-        {/* <p>企業紹介</p> */}
-        {/* <p>企業紹介</p> */}
         <SContainer4 />
         <SContainer5 />
         <SContainer6 />
-        {/* <p>企業紹介</p> */}
-        {/* </MediaQuery> */}
       </SNavItem>
     </>
   );
