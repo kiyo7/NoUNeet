@@ -12,31 +12,67 @@ class MapBox extends Component {
             container: this.container,
             style: 'mapbox://styles/fu-ta2511/cktye8opm2jb319o4uwvugxgo',
             center: [139.7670516, 35.6811673],
-            zoom: 12
+            zoom: 12.5
         })
         this.map.addControl(new mapboxgl.NavigationControl());
-        const html =
-            `<H3>あばばば株式会社</H3>
+
+
+        const html1 =
+            `<h3>あばばば株式会社</h3>
+            <span>-会社概要-</span>
+            </br>
         <span>
         あばばば株式会社（Abababa.inc）は、東京都に跨る営利主義団体である。ビルの高さ3776.12 m、日本最高峰で日本国外でも日本の象徴として広く知られている。
         <span>
-        <button class="map-button">企業の話を聞く</button>
-        `;
-
-        const popup = new mapboxgl.Popup({
-            //anchor: 'bottom',
+        <button class="map-button">企業の話を聞く</button>`;
+        const popup1 = new mapboxgl.Popup({
             className: 'my-class',
-            closeButton: false,
+            closeButton: true,
         })
             .setMaxWidth('400px')
-            .setHTML(html);
-
-        // create the marker
+            .setHTML(html1);
         new mapboxgl.Marker()
             .setLngLat([139.7174577, 35.72621461])
-            .setPopup(popup) // sets a popup on this marker
+            .setPopup(popup1)
             .addTo(this.map)
             .togglePopup();
+
+        const html2 =
+            `<h3>なに見てんのよ協同組合</h3>
+            <span>-会社概要-</span>
+            </br>
+        <span>なに見てんのよ協同組合一同は、「定時での退社。でなければ帰れ」を社訓として2018年に設立した協同組合です。<span>
+        <button class="map-button">企業の話を聞く</button>`;
+        const popup2 = new mapboxgl.Popup({
+            className: 'my-class',
+            closeButton: true,
+        })
+            .setMaxWidth('400px')
+            .setHTML(html2);
+        new mapboxgl.Marker()
+            .setLngLat([139.75264115, 35.70006172])
+            .setPopup(popup2)
+            .addTo(this.map)
+            .togglePopup();
+
+        const html3 =
+            `<h3>げへへへ証券</h3>
+            <span>-会社概要-</span>
+            </br>
+        <span>げへへへ証券は働きやすい環境を維持するために、インターンでなるべく目立とうとした方から順に落としていきます😊✨<span>
+        <button class="map-button">企業の話を聞く</button>`;
+        const popup3 = new mapboxgl.Popup({
+            className: 'my-class',
+            closeButton: true,
+        })
+            .setMaxWidth('400px')
+            .setHTML(html3);
+        new mapboxgl.Marker()
+            .setLngLat([139.6937361, 35.69823936])
+            .setPopup(popup3)
+            .addTo(this.map)
+            .togglePopup();
+
 
     }
 
@@ -57,5 +93,6 @@ class MapBox extends Component {
 
     }
 }
+
 
 export default MapBox

@@ -52,10 +52,11 @@ top: 0px;
 .mapboxgl-popup-content{
   padding: 0px;
   color: rgb(8, 66, 0);
-  height: 150px;
+  height: 180px;
   width: 300px;
   font-family: Helvetica;
 }
+
 .map-button{
   margin: 0 auto;
   margin-top: 13px;
