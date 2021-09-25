@@ -86,7 +86,7 @@ export const SignUp = () => {
               setName(e.target.value);
             }}
           />
-          {/* <TextField
+          <TextField
             margin="normal"
             required
             fullwidth="true"
@@ -98,7 +98,7 @@ export const SignUp = () => {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-          /> */}
+          />
           <TextField
             type="password"
             margin="normal"
