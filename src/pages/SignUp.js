@@ -1,6 +1,8 @@
 // lib
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, Redirect } from "react-router-dom";
+import styled from "styled-components";
+import firebase from "../config/firebase";
 
 // @material-ui
 import Button from "@material-ui/core/Button";
@@ -9,14 +11,19 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 
 // components
-import firebase from "../config/firebase";
-import back from "../images/background.jpeg";
-import styled from "styled-components";
+import background from "../images/background.jpeg";
+import { AuthContext } from "../AuthService";
 
 export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+
+  const user = useContext(AuthContext);
+
+  if (user) {
+    return <Redirect to="/" />;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,12 +31,16 @@ export const SignUp = () => {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(({ user }) => {
+        user.sendEmailVerification();
         user.updateProfile({
           displayName: name,
         });
       })
       .catch((err) => {
         console.log(err);
+        alert(
+          "登録できませんでした。もう一度よく確認して登録をお願い致します。"
+        );
       });
   };
 
@@ -90,7 +101,7 @@ export const SignUp = () => {
             required
             fullwidth="true"
             variant="outlined"
-            label="Password"
+            label="Password(6文字以上)"
             name="password"
             autoComplete="password"
             value={password}
@@ -109,7 +120,7 @@ export const SignUp = () => {
   );
 };
 const SContainer = styled.div`
-  background-image: url(${back});
+  background-image: url(${background});
   max-width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
