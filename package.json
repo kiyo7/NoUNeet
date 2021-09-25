@@ -37,6 +37,7 @@
     "source-map": "^0.6.1",
     "source-map-js": "^0.6.2",
     "styled-components": "^5.3.1",
+    "use-file-upload": "^1.0.11",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
