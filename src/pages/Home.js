@@ -1,12 +1,14 @@
 //components
 import React from 'react';
-import firebase from "../config/firebase";
+
+import { Header } from '../components/header/Header';
+import { MainPage } from '../pages/MainPage/MainPage';
 
 export const Home = () => {
   return (
     <>
-      <h1>Home</h1>
-      <button onClick={() => firebase.auth().signOut()}>ログアウト</button>
+      <Header />
+      <MainPage />
     </>
   );
 };

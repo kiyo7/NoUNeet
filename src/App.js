@@ -1,6 +1,6 @@
 // lib
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // components
 import { Home } from "./pages/Home";
@@ -11,6 +11,17 @@ import { LoggedInRoute } from "./LoggedInRoute";
 import MapBox from "./pages/MapBox";
 import { ResetPassword } from "./pages/ResetPassword";
 import { SignInCheck } from "./pages/SignInCheck";
+import { Home } from './pages/Home';
+import { Login } from './pages/Login';
+import { SignUp } from './pages/SignUp';
+import { AuthProvider } from './AuthService';
+import { Profile } from './pages/ProfilePage/Profile';
+import { LoggedInRoute } from './LoggedInRoute';
+import MapBox from './pages/MapBox';
+import { ResetPassword } from './pages/ResetPassword';
+import { SignInCheck } from './pages/SignInCheck';
+import { CompanyDetailPage } from './pages/CompanyDetailsPage/CompanyDetails';
+
 
 export const App = () => {
   return (
@@ -24,7 +35,12 @@ export const App = () => {
           <Route exact path="/signincheck" component={SignInCheck}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
           <Route exact path="/mapbox" component={MapBox}></Route>
-          <Route exact path="/resetpassword" component={ResetPassword}></Route>
+          <Route exact path="/profile" component={Profile}></Route>
+          <Route
+            exact
+            path="/company/:id"
+            component={CompanyDetailPage}
+          ></Route>
         </Switch>
       </Router>
     </AuthProvider>
