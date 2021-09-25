@@ -1,5 +1,5 @@
 // lib
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
 import styled from "styled-components";
 import firebase from "../config/firebase";
@@ -14,14 +14,8 @@ import Typography from "@material-ui/core/Typography";
 import background from "../images/background.jpeg";
 import { AuthContext } from "../AuthService";
 
-export const SignUp = () => {
+export const SignInCheck = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-
-  useEffect(() => {
-    setEmail(window.localStorage.getItem("emailForSignIn"));
-  }, []);
 
   const user = useContext(AuthContext);
 
@@ -30,21 +24,22 @@ export const SignUp = () => {
   }
 
   const handleSubmit = (e) => {
+    const actionCodeSettings = {
+      url: `${window.location.origin}/signup`,
+      handleCodeInApp: true,
+    };
     e.preventDefault();
     firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(({ user }) => {
-        user.sendEmailVerification();
-        user.updateProfile({
-          displayName: name,
-        });
+      .sendSignInLinkToEmail(email, actionCodeSettings)
+      .then(function () {
+        window.localStorage.setItem("emailForSignIn", email);
+        console.log(window.localStorage.getItem("emailForSignIn"))
+        console.log("succes")
       })
-      .catch((err) => {
-        console.log(err);
-        alert(
-          "登録できませんでした。もう一度よく確認して登録をお願い致します。"
-        );
+      .catch(function (error) {
+        console.log(error.code);
+        console.log(error.message);
       });
   };
 
@@ -59,7 +54,7 @@ export const SignUp = () => {
         }}
       >
         <Typography component="h1" variant="h5">
-          新規登録
+          メールを送る
         </Typography>
         <Box
           component="form"
@@ -77,20 +72,6 @@ export const SignUp = () => {
             required
             fullwidth="true"
             variant="outlined"
-            label="Name"
-            name="name"
-            autoComplete="name"
-            autoFocus
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-          {/* <TextField
-            margin="normal"
-            required
-            fullwidth="true"
-            variant="outlined"
             label="E-mail"
             name="e-mail"
             autoComplete="e-mail"
@@ -98,28 +79,14 @@ export const SignUp = () => {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-          /> */}
-          <TextField
-            type="password"
-            margin="normal"
-            required
-            fullwidth="true"
-            variant="outlined"
-            label="Password(6文字以上)"
-            name="password"
-            autoComplete="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
           />
+
           <br />
           <Button type="submit" variant="contained" color="secondary">
-            登録
+            メールを送る
           </Button>
         </Box>
         <Link to="/login">ログイン画面へ</Link>
-        <Link to="/signincheck">サインチェック画面へ</Link>
       </Box>
     </SContainer>
   );
