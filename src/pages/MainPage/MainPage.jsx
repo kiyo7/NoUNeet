@@ -55,14 +55,16 @@ export const MainPage = () => {
 
 const SContentsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 100px;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
-  margin-top: 40px;
-  padding: 4%;
+  gap: 3em;
+  padding: 8%;
   text-align: center;
 `;
 
 const SNavItem = styled.div`
+  width: 600px;
+  height: 500px;
   margin-bottom: 20px;
+  box-shadow: 100px;
 `;
