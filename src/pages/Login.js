@@ -105,6 +105,10 @@ export const Login = ({ history }) => {
         <Link to="/resetpassword">パスワードを忘れましたか？</Link>
         <Link to="/signup">ユーザー登録画面へ</Link>
       </Box>
+
+      <Link to="/signup">ユーザー登録画面へ</Link>
+      <Link to="/MapBox">Map</Link>
+    </Box>
     </SContainer>
   );
 };
