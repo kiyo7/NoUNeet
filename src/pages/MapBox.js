@@ -15,10 +15,12 @@ class MapBox extends Component {
             zoom: 12
         })
         this.map.addControl(new mapboxgl.NavigationControl());
-        const html = `<H3>あばばば会社</H3>
+        const html =
+            `<H3>あばばば株式会社</H3>
         <span>
-        あばばば会社（Abababa.co）は、東京都に跨る営利主義団体である。ビルの高さ3776.12 m、日本最高峰で日本国外でも日本の象徴として広く知られている。
+        あばばば株式会社（Abababa.inc）は、東京都に跨る営利主義団体である。ビルの高さ3776.12 m、日本最高峰で日本国外でも日本の象徴として広く知られている。
         <span>
+        <button class="map-button">企業の話を聞く</button>
         `;
 
         const popup = new mapboxgl.Popup({
@@ -31,7 +33,7 @@ class MapBox extends Component {
 
         // create the marker
         new mapboxgl.Marker()
-            .setLngLat([139.7670516, 35.6811673])
+            .setLngLat([139.7174577, 35.72621461])
             .setPopup(popup) // sets a popup on this marker
             .addTo(this.map)
             .togglePopup();

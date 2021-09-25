@@ -15,6 +15,7 @@
     "babel-plugin-polyfill-corejs2": "^0.2.2",
     "babel-plugin-polyfill-corejs3": "^0.2.5",
     "babel-plugin-polyfill-regenerator": "^0.2.2",
+    "date-fns": "^2.24.0",
     "firebase": "^9.0.2",
     "has-tostringtag": "^1.0.0",
     "lodash.merge": "^4.6.2",

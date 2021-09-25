@@ -11,7 +11,6 @@ import { LoggedInRoute } from "./LoggedInRoute";
 import MapBox from "./pages/MapBox";
 import { ResetPassword } from "./pages/ResetPassword";
 import { SignInCheck } from "./pages/SignInCheck";
-import Calender from './components/Calender'
 
 export const App = () => {
   return (
