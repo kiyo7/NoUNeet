@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import EditIcon from '@material-ui/icons/Edit';
-import styled from 'styled-components';
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../AuthService";
+import Sample from "./EditPage/Photo/sample";
+
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+
+import styled from "styled-components";
 
 const ProfileMain = () => {
-  const [value, setValue] = useState('female');
+  const user = useContext(AuthContext);
+  console.log(user.displayName);
+  const [value, setValue] = useState("回答しない");
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -18,34 +26,33 @@ const ProfileMain = () => {
         <SProfileImage>
           <SImageList>プロフィール画像</SImageList>
           <SIcon>
-            <AccountCircleIcon fontSize="large" />
+            <Sample />
           </SIcon>
-          <SEdit>
-            <SEditIcon>
-              <EditIcon fontSize="large" />
-            </SEditIcon>
-          </SEdit>
         </SProfileImage>
         <br />
+        <br />
+        <br />
+
         <SProfileName>
-          <SNameList>ユーザー名</SNameList>
-          <SName>あいうえおあいう</SName>
-          <SEdit>
-            <SEditIcon>
-              <EditIcon fontSize="large" />
-            </SEditIcon>
-          </SEdit>
+          <SNameList>
+            ユーザー名
+            <br />
+            <SSpan>(※変更不可)</SSpan>
+          </SNameList>
+          <SName>{user.displayName}</SName>
         </SProfileName>
+        <br />
+        <br />
         <br />
 
         <SProfileJobs>
           <SJobList>職種</SJobList>
-          <SJob>学生</SJob>
-          {/* <SRadioBtn>
+
+          <SRadioBtn>
             <FormControl component="fieldset">
               <RadioGroup
                 row
-                aria-label="gender"
+                aria-label="job"
                 name="controlled-radio-buttons-group"
                 value={value}
                 onChange={handleChange}
@@ -67,28 +74,9 @@ const ProfileMain = () => {
                 />
               </RadioGroup>
             </FormControl>
-          </SRadioBtn> */}
-          <SEdit>
-            <SEditIcon>
-              <EditIcon fontSize="large" />
-            </SEditIcon>
-          </SEdit>
+          </SRadioBtn>
         </SProfileJobs>
         <br />
-
-        <SProfileIntroduction>
-          <SIntroductionList>自己紹介</SIntroductionList>
-          <SEdit>
-            <SEditIcon>
-              <EditIcon fontSize="large" />
-            </SEditIcon>
-          </SEdit>
-        </SProfileIntroduction>
-        <SIntroText>
-          <SText>
-            ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-          </SText>
-        </SIntroText>
       </SProfile>
     </>
   );
@@ -96,23 +84,14 @@ const ProfileMain = () => {
 
 const SProfile = styled.div`
   width: 50%;
+  padding: 3%;
   margin-left: 23%;
+  border: dashed;
+  border-width: 7px;
 `;
 
 const STitle = styled.h1`
   text-align: center;
-`;
-
-const SEdit = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const SEditIcon = styled.button`
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 100%;
 `;
 
 const SProfileImage = styled.div`
@@ -121,11 +100,16 @@ const SProfileImage = styled.div`
 `;
 
 const SImageList = styled.h2`
+  display: flex;
+  align-items: center;
   width: 28%;
-  text-align: right;
+  padding: 1%;
+  border-style: solid;
+  border-radius: 50px;
 `;
 
 const SIcon = styled.div`
+  width: 40%;
   display: flex;
   align-items: center;
 `;
@@ -137,12 +121,20 @@ const SProfileName = styled.div`
 
 const SNameList = styled.h2`
   width: 28%;
-  text-align: right;
+  text-align: center;
+  padding: 1%;
+  border-style: solid;
+  border-radius: 50px;
 `;
 
 const SName = styled.h2`
+  width: 40%;
   display: flex;
   align-items: center;
+`;
+
+const SSpan = styled.p`
+  font-size: 2px;
 `;
 
 const SProfileJobs = styled.div`
@@ -150,38 +142,18 @@ const SProfileJobs = styled.div`
   justify-content: space-between;
 `;
 
-// const SRadioBtn = styled.div`
-//   display: flex;
-//   align-items: center;
-// `;
-
-const SJobList = styled.h2`
-  width: 28%;
-  text-align: right;
-`;
-
-const SJob = styled.h2`
+const SRadioBtn = styled.div`
+  width: 50%;
   display: flex;
   align-items: center;
 `;
 
-const SProfileIntroduction = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const SIntroductionList = styled.h2`
+const SJobList = styled.h2`
   width: 28%;
-  text-align: right;
-`;
-
-const SIntroText = styled.div`
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-`;
-
-const SText = styled.p`
+  text-align: center;
   padding: 1%;
+  border-style: solid;
+  border-radius: 50px;
 `;
 
 export default ProfileMain;
