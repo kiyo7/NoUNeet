@@ -22,7 +22,8 @@ const SImage = styled.img`
 `;
 
 const SCompanyTitle = styled.h3`
-  font-size: 2rem;
+  font-size: 1.24rem;
+
   font-family: 'Noto Sans JP', sans-serif;
   background-image: linear-gradient(#6d5f65 0%, #544e4e 100%);
   background-clip: text;

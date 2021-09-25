@@ -2,13 +2,15 @@ import styled from 'styled-components';
 
 import { Layout } from 'antd';
 
+import { useLocation, useParams } from 'react-router-dom';
+
 import { Header } from '../../components/header/Header';
 import { PrimaryButton } from '../../components/button/PrimaryButton';
 
-import sample from '../../images/sampleCompany.png';
+export const CompanyDetailPage = () => {
+  const location = useLocation();
 
-export const CompanyDetailPage = (props) => {
-  const { company } = props;
+  const { id } = useParams();
 
   const log = () => console.log('MapBoxへ');
   const chat = () => console.log('chatpageへ');
@@ -23,36 +25,22 @@ export const CompanyDetailPage = (props) => {
         <SMainContents>
           <SArticle>
             <header>
-              {/* stateで渡された情報が入る .nameのような感じ */}
-              <h2 style={{ textAlign: 'center' }}>00会社</h2>
+              <h2 style={{ textAlign: 'center' }}>
+                {location.state.state[id - 1].name}
+              </h2>
             </header>
 
-            <p>
-              {/* stateで渡された情報が入る company.descriptionのような感じ */}
-              企業説明テキスト企業説明テキスト企業説明テキスト企業説明テキスト
-              企業説明テキスト 企業説明テキスト 企業説明テキスト
-              企業説明テキスト 企業説明テキスト 企業説明テキスト
-              企業説明テキスト 企業説明テキスト 企業説明テキスト
-              企業説明テキスト 企業説明テキスト{' '}
-              企業説明テキスト企業説明テキスト企業説明テキスト企業説明テキスト
-              企業説明テキスト 企業説明テキスト 企業説明テキスト
-              企業説明テキスト 企業説明テキスト 企業説明テキスト
-              企業説明テキスト 企業説明テキスト{' '}
-              企業説明テキスト企業説明テキスト企業説明テキスト企業説明テキスト
-              企業説明テキスト 企業説明テキスト 企業説明テキスト
-              企業説明テキスト 企業説明テキスト 企業説明テキスト
-              企業説明テキスト 企業説明テキスト 企業説明テキスト
-              企業説明テキスト 企業説明テキスト
-            </p>
-            <p>企業のHP: http:google.com{/* 企業のHP company.website */}</p>
+            <p> {location.state.state[id - 1].description} </p>
+            <p>企業のHP: {location.state.state[id - 1].url}</p>
 
-            <h1 style={{ fontSize: '4rem' }}>関連企業一覧</h1>
+            <h1 style={{ fontSize: '3rem' }}>関連企業</h1>
+            <h3>Coming Soon...</h3>
           </SArticle>
 
           <SAside>
             <SSideContentsWrapper>
               <SImageWrapper>
-                <SImage src={sample} alt="aaaa" />
+                <SImage src={location.state.state[id - 1].image} alt="aaaa" />
               </SImageWrapper>
               <SButtonWrapper>
                 <SButtonMargin>
@@ -98,17 +86,17 @@ const SAside = styled.aside`
 `;
 
 const SImageWrapper = styled.div`
-  background-color: black;
+  /* background-color: black; */
   width: 100%;
   height: 400px;
-  background-image: url(${sample});
+
   background-size: cover;
-  border-radius: 30px;
 `;
 
-const SImage = styled.image`
+const SImage = styled.img`
   width: 100%;
   height: 100%;
+  border-radius: 30px;
 `;
 
 const SButtonWrapper = styled.div`

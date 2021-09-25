@@ -27,7 +27,11 @@ export const App = () => {
           <Route exact path="/signup" component={SignUp}></Route>
           <Route exact path="/mapbox" component={MapBox}></Route>
           <Route exact path="/profile" component={Profile}></Route>
-          <Route exact path="/company" component={CompanyDetailPage}></Route>
+          <Route
+            exact
+            path="/company/:id"
+            component={CompanyDetailPage}
+          ></Route>
         </Switch>
       </Router>
     </AuthProvider>
