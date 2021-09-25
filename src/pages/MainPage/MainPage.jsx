@@ -3,6 +3,8 @@ import { useCompanyAllGet } from '../../hooks/useCompanyAllGet';
 import { useSelectCompany } from '../../hooks/useSelectCompany';
 import styled from 'styled-components';
 
+import { useHistory } from 'react-router-dom';
+
 import { CompanyCards } from './CompanyCard';
 
 import Backdrop from '@mui/material/Backdrop';
@@ -12,11 +14,14 @@ export const MainPage = () => {
   const { getCompanys, loading, companys } = useCompanyAllGet();
   const { onSelectCompany, selectCompany } = useSelectCompany();
 
+  const history = useHistory();
+
   useEffect(() => getCompanys(), []);
 
   const onClickCompany = useCallback(
     (id) => {
       onSelectCompany({ id, companys });
+      history.push(`/company/${id.id}`, { state: companys });
     },
     [companys, onSelectCompany]
   );
@@ -35,9 +40,10 @@ export const MainPage = () => {
           {companys.map((company) => (
             <SNavItem key={company.id}>
               <CompanyCards
+                id={company.id}
                 image={company.image}
                 name={company.name}
-                onClick={onClickCompany}
+                onClick={() => onClickCompany(company)}
               />
             </SNavItem>
           ))}
