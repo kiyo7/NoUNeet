@@ -1,17 +1,18 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import React from "react";
 
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from "react-router-dom";
 
-import { Header } from '../../components/header/Header';
-import { PrimaryButton } from '../../components/button/PrimaryButton';
-
+import { Header } from "../../components/header/Header";
+import { PrimaryButton } from "../../components/button/PrimaryButton";
+import Chatbot from "../CompanyCha/chat";
 export const CompanyDetailPage = () => {
   const location = useLocation();
 
   const { id } = useParams();
 
-  const log = () => console.log('MapBoxへ');
-  const chat = () => console.log('chatpageへ');
+  const log = () => console.log("MapBoxへ");
+  const chat = () => console.log("chatpageへ");
   return (
     <div>
       <Header />
@@ -23,34 +24,39 @@ export const CompanyDetailPage = () => {
         <SMainContents>
           <SArticle>
             <header>
-              <h2 style={{ textAlign: 'center' }}>
-                {location.state.state[id - 1].name}
+              <h2 style={{ textAlign: "center" }}>
+                {location.state.state[id].name}
               </h2>
             </header>
 
-            <p> {location.state.state[id - 1].description} </p>
-            <p>企業のHP: {location.state.state[id - 1].url}</p>
+            <p> {location.state.state[id].description} </p>
+            <p>企業のHP: {location.state.state[id].url}</p>
 
-            <h1 style={{ fontSize: '3rem' }}>関連企業</h1>
+            <h1 style={{ fontSize: "3rem" }}>関連企業</h1>
             <h3>Coming Soon...</h3>
+            <SButtonWrapper>
+              <SButtonMargin>
+                <PrimaryButton onClick={log}>企業の場所を見る</PrimaryButton>
+              </SButtonMargin>
+              <SButtonMargin>
+                <PrimaryButton onClick={chat}>企業と話す</PrimaryButton>
+              </SButtonMargin>
+            </SButtonWrapper>
           </SArticle>
 
           <SAside>
             <SSideContentsWrapper>
               <SImageWrapper>
-                <SImage src={location.state.state[id - 1].image} alt="aaaa" />
+                <SImage src={location.state.state[id].image} alt="aaaa" />
               </SImageWrapper>
-              <SButtonWrapper>
-                <SButtonMargin>
-                  <PrimaryButton onClick={log}>企業の場所を見る</PrimaryButton>
-                </SButtonMargin>
-                <SButtonMargin>
-                  <PrimaryButton onClick={chat}>企業と話す</PrimaryButton>
-                </SButtonMargin>
-              </SButtonWrapper>
             </SSideContentsWrapper>
           </SAside>
         </SMainContents>
+        <RowReverce>
+          <React.StrictMode>
+            <Chatbot />
+          </React.StrictMode>
+        </RowReverce>
       </SCompanyDetailWrapper>
     </div>
   );
@@ -87,7 +93,6 @@ const SImageWrapper = styled.div`
   /* background-color: black; */
   width: 100%;
   height: 400px;
-
   background-size: cover;
 `;
 
@@ -100,8 +105,16 @@ const SImage = styled.img`
 const SButtonWrapper = styled.div`
   text-align: center;
   margin-top: 3%;
+  margin-left: 0;
+  display: flex;
 `;
 
 const SButtonMargin = styled.div`
   margin-top: 5%;
+`;
+
+const RowReverce = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0 30px 20px;
 `;
