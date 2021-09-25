@@ -1,5 +1,4 @@
-import React from "react";
-import profile from profile.css
+import React from 'react';
 export const Main = () => {
   return (
     <>

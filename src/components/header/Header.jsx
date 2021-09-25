@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import firebase from '../config/firebase';
+import firebase from '../../config/firebase';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { media } from '../util/MediaQuery';
+import { media } from '../../util/MediaQuery';
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
