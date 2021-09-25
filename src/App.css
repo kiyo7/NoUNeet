@@ -49,3 +49,9 @@ top: 0px;
   z-index: 10;
   background-color: rgb(221, 107, 14);
 }
+.mapboxgl-popup-content{
+  padding: 0px;
+  color: darkgoldenrod;
+  height: 150px;
+  width: 300px;
+}
