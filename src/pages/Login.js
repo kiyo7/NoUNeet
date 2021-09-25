@@ -77,6 +77,7 @@ export const Login = ({ history }) => {
               setEmail(e.target.value);
             }}
           />
+
           <TextField
             type="password"
             margin="normal"
@@ -91,23 +92,31 @@ export const Login = ({ history }) => {
               setPassword(e.target.value);
             }}
           />
+          <Link style={{ fontSize: '18px' }} to="/resetpassword">
+            パスワードをお忘れですか？
+          </Link>
+          <br />
           <br />
           <Button
             type="submit"
             fullwidth="true"
             variant="contained"
-            color="secondary"
+            color="primary"
+            size="large"
           >
             ログイン
           </Button>
         </Box>
-
-        <Link to="/resetpassword">パスワードを忘れましたか？</Link>
-        <Link to="/signup">ユーザー登録画面へ</Link>
+        <br />
+        <br />
+        <p>
+          アカウントをお持ちでないですか？&nbsp;
+          <Link to="/signup">新規登録</Link>
+        </p>
+        <br />
+        <br />
         <Link to="/MapBox">Map</Link>
       </Box>
-
-
     </SContainer>
   );
 };
@@ -118,4 +127,3 @@ const SContainer = styled.div`
   background-repeat: no-repeat;
   height: 100vh;
 `;
-
