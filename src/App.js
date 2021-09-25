@@ -7,11 +7,11 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
 import { AuthProvider } from "./AuthService";
+import { Profile } from "./pages/profile/Profile";
 import { LoggedInRoute } from "./LoggedInRoute";
 import MapBox from "./pages/MapBox";
 import { ResetPassword } from "./pages/ResetPassword";
 import { SignInCheck } from "./pages/SignInCheck";
-
 
 export const App = () => {
   return (
@@ -25,10 +25,10 @@ export const App = () => {
           <Route exact path="/signincheck" component={SignInCheck}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
           <Route exact path="/mapbox" component={MapBox}></Route>
+          <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/resetpassword" component={ResetPassword}></Route>
         </Switch>
       </Router>
     </AuthProvider>
   );
 };
-
