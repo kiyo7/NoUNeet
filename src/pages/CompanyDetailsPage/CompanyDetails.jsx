@@ -24,12 +24,12 @@ export const CompanyDetailPage = () => {
           <SArticle>
             <header>
               <h2 style={{ textAlign: 'center' }}>
-                {location.state.state[id - 1].name}
+                {location.state.state[id].name}
               </h2>
             </header>
 
-            <p> {location.state.state[id - 1].description} </p>
-            <p>企業のHP: {location.state.state[id - 1].url}</p>
+            <p> {location.state.state[id].description} </p>
+            <p>企業のHP: {location.state.state[id].url}</p>
 
             <h1 style={{ fontSize: '3rem' }}>関連企業</h1>
             <h3>Coming Soon...</h3>
@@ -38,7 +38,7 @@ export const CompanyDetailPage = () => {
           <SAside>
             <SSideContentsWrapper>
               <SImageWrapper>
-                <SImage src={location.state.state[id - 1].image} alt="aaaa" />
+                <SImage src={location.state.state[id].image} alt="aaaa" />
               </SImageWrapper>
               <SButtonWrapper>
                 <SButtonMargin>
