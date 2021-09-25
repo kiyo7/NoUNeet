@@ -11,7 +11,8 @@ export const useCompanyAllGet = () => {
 
     axios
       .get('https://my-json-server.typicode.com/kiyo7/sampledata/company/')
-      .then((res) => setCompanys(res.data))
+      .then((res) => {setCompanys(res.data);
+      console.log(res)})
       .catch((err) => console.log(err))
       .finally(() => {
         setLoading(false);
