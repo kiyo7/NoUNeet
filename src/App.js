@@ -11,6 +11,7 @@ import { Profile } from "./pages/profile/Profile";
 import { LoggedInRoute } from "./LoggedInRoute";
 import MapBox from "./pages/MapBox";
 import { ResetPassword } from "./pages/ResetPassword";
+import { SignInCheck } from "./pages/SignInCheck";
 
 export const App = () => {
   return (
@@ -19,6 +20,9 @@ export const App = () => {
         <Switch>
           <LoggedInRoute exact path="/" component={Home}></LoggedInRoute>
           <Route exact path="/login" component={Login}></Route>
+          <Route path="/signup" component={SignUp}></Route>
+          <Route exact path="/resetpassword" component={ResetPassword}></Route>
+          <Route exact path="/signincheck" component={SignInCheck}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
           <Route exact path="/mapbox" component={MapBox}></Route>
           <Route exact path="/profile" component={Profile}></Route>
