@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { Layout } from 'antd';
-
 import { useLocation, useParams } from 'react-router-dom';
 
 import { Header } from '../../components/header/Header';
@@ -15,7 +13,7 @@ export const CompanyDetailPage = () => {
   const log = () => console.log('MapBoxへ');
   const chat = () => console.log('chatpageへ');
   return (
-    <Layout>
+    <div>
       <Header />
       <STitleWrapper>
         <SPageTitle>企業詳細ページ</SPageTitle>
@@ -54,7 +52,7 @@ export const CompanyDetailPage = () => {
           </SAside>
         </SMainContents>
       </SCompanyDetailWrapper>
-    </Layout>
+    </div>
   );
 };
 

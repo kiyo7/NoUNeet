@@ -1,15 +1,10 @@
-import React from "react";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import EditIcon from "@material-ui/icons/Edit";
-import styled from "styled-components";
-
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
+import React, { useState } from 'react';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import EditIcon from '@material-ui/icons/Edit';
+import styled from 'styled-components';
 
 const ProfileMain = () => {
-  const [value, setValue] = React.useState("female");
+  const [value, setValue] = useState('female');
 
   const handleChange = (event) => {
     setValue(event.target.value);
