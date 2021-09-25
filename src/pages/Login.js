@@ -1,23 +1,23 @@
 // lib
-import React, { useState, useContext } from "react";
-import { Redirect, Link } from "react-router-dom";
-import styled from "styled-components";
+import React, { useState, useContext } from 'react';
+import { Redirect, Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 // material-ui
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 // import Container from "@material-ui/core/Container";
 
 // components
-import background from "../images/background.jpeg";
-import { AuthContext } from "../AuthService";
-import firebase from "../config/firebase";
+import background from '../images/background.jpeg';
+import { AuthContext } from '../AuthService';
+import firebase from '../config/firebase';
 
 export const Login = ({ history }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,11 +25,11 @@ export const Login = ({ history }) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        history.push("/");
+        history.push('/');
       })
       .catch((err) => {
         console.log(err);
-        alert("メールアドレスまたはパスワードが間違っています。");
+        alert('メールアドレスまたはパスワードが間違っています。');
       });
   };
 
@@ -44,9 +44,9 @@ export const Login = ({ history }) => {
       <Box
         sx={{
           paddingTop: 100,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
         <Typography component="h1" variant="h5">
@@ -57,8 +57,8 @@ export const Login = ({ history }) => {
           onSubmit={handleSubmit}
           noValidate
           sx={{
-            display: "flex",
-            flexDirection: "column",
+            display: 'flex',
+            flexDirection: 'column',
             width: 300,
             marginBottom: 15,
           }}
@@ -108,7 +108,6 @@ export const Login = ({ history }) => {
 
       <Link to="/signup">ユーザー登録画面へ</Link>
       <Link to="/MapBox">Map</Link>
-    </Box>
     </SContainer>
   );
 };
