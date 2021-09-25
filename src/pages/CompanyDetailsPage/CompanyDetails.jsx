@@ -10,7 +10,11 @@ export const CompanyDetailPage = () => {
 
   const { id } = useParams();
 
-  const log = () => console.log('MapBoxへ');
+  const log = () => {
+    return (<>
+
+    </>)
+  }
   const chat = () => console.log('chatpageへ');
   return (
     <div>

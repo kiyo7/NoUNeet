@@ -3,6 +3,7 @@ import '../App.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 import Calender from '../components/Calender'
+import { Header } from '../components/header/Header';
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZnUtdGEyNTExIiwiYSI6ImNrdHc3azZwYzI3bWwybm8xaDZlYzNuYTAifQ.iF3783k67PmflH1wPU-_gw'
@@ -82,10 +83,12 @@ class MapBox extends Component {
 
     render() {
         return (
-
-            <div className={'map'} ref={e => (this.container = e)} >
-                <Calender className={'calender'} />
-            </div>
+            <>
+                <Header />
+                <div className={'map'} ref={e => (this.container = e)} >
+                    <Calender className={'calender'} />
+                </div>
+            </>
 
         )
 
