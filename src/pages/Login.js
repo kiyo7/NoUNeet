@@ -114,15 +114,8 @@ export const Login = ({ history }) => {
         </p>
         <br />
         <br />
-        <Link to="/resetpassword">パスワードを忘れましたか？</Link>
-        <Button
-          fullwidth="true"
-          variant="contained"
-          color="secondary"
-          component={Link}
-          to="/signup"
-        >
-          ユーザー登録画面へ</Button>
+        <br />
+        <br />
         <Link to="/MapBox">Map</Link>
       </Box>
     </SContainer>
