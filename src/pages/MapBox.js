@@ -11,11 +11,10 @@ class MapBox extends Component {
         this.map = new mapboxgl.Map({
             container: this.container,
             style: 'mapbox://styles/fu-ta2511/cktye8opm2jb319o4uwvugxgo',
-            center: [139.7670516, 35.6811673],
-            zoom: 12.5
+            center: [139.70048839, 35.68961569],
+            zoom: 13
         })
         this.map.addControl(new mapboxgl.NavigationControl());
-
 
         const html1 =
             `<h3>あばばば株式会社</h3>
@@ -41,7 +40,7 @@ class MapBox extends Component {
             `<h3>なに見てんのよ協同組合</h3>
             <span>-会社概要-</span>
             </br>
-        <span>なに見てんのよ協同組合一同は、「定時での退社。でなければ帰れ」を社訓として2018年に設立した協同組合です。<span>
+        <span>なに見てんのよ協同組合は、「定時での退社。でなければ、帰れ」を社訓として2018年に設立した協同組合です。<span>
         <button class="map-button">企業の話を聞く</button>`;
         const popup2 = new mapboxgl.Popup({
             className: 'my-class',
