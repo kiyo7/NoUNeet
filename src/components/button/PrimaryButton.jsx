@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const PrimaryButton = (props) => {
-  const { width = '500px', height = '130px', onClick, children } = props;
+  const { width = "300px", height = "130px", onClick, children } = props;
   return (
     <>
       <SButton
-        style={{ width: `${width}`, height: `${height}` }}
+        style={{ width: `${width}`, height: `${height}`, margin: `20px` }}
         onClick={onClick}
       >
         {children}
