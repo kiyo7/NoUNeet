@@ -3,6 +3,14 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // components
+import { Home } from "./pages/Home";
+import { Login } from "./pages/Login";
+import { SignUp } from "./pages/SignUp";
+import { AuthProvider } from "./AuthService";
+import { LoggedInRoute } from "./LoggedInRoute";
+import MapBox from "./pages/MapBox";
+import { ResetPassword } from "./pages/ResetPassword";
+import { SignInCheck } from "./pages/SignInCheck";
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { SignUp } from './pages/SignUp';
@@ -13,6 +21,7 @@ import MapBox from './pages/MapBox';
 import { ResetPassword } from './pages/ResetPassword';
 import { SignInCheck } from './pages/SignInCheck';
 import { CompanyDetailPage } from './pages/CompanyDetailsPage/CompanyDetails';
+
 
 export const App = () => {
   return (
