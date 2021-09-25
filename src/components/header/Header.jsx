@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import firebase from "../../config/firebase";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { media } from "../../util/MediaQuery";
+import React, { useState } from 'react';
+import firebase from '../../config/firebase';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { media } from '../../util/MediaQuery';
 
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Drawer from "@material-ui/core/Drawer";
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Drawer from '@material-ui/core/Drawer';
 
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import HomeIcon from "@mui/icons-material/Home";
-import LogoutIcon from "@mui/icons-material/Logout";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import HomeIcon from '@mui/icons-material/Home';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   text: {
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
   },
 }));
 
@@ -44,18 +44,18 @@ export const Header = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <Link to="/" style={{ color: "white" }}>
+            <Link to="/" style={{ color: 'white' }}>
               NoUneet
             </Link>
           </Typography>
           <SNavWrapper>
             <Button color="inherit" className={classes.text}>
               <HomeIcon />
-              MainPage
+              <Link to="/">Home</Link>
             </Button>
             <Button color="inherit" className={classes.text}>
               <AccountCircleIcon />
-              MyProfile
+              <Link to="/profile">MyProfile</Link>
             </Button>
             <Button
               color="inherit"
@@ -80,13 +80,13 @@ export const Header = () => {
               <SNavItem>
                 <Button color="inherit" className={classes.text}>
                   <HomeIcon />
-                  MainPage
+                  <Link to="/">Home</Link>
                 </Button>
               </SNavItem>
               <SNavItem>
                 <Button color="inherit" className={classes.text}>
                   <AccountCircleIcon />
-                  MyProfile
+                  <Link to="/profile">MyProfile</Link>
                 </Button>
               </SNavItem>
               <SNavItem>
@@ -121,4 +121,8 @@ const SNavItem = styled.div`
   font-size: 2rem;
   text-align: center;
   margin-top: 40px;
+`;
+
+const SLink = styled(Link)`
+  ${media.desktop`  color: black`}
 `;

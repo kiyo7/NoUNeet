@@ -124,8 +124,10 @@ export const SignUp = () => {
           <Link to="/login">ログイン</Link>
         </p>
         <br />
-        <br />
-        <Link to="/signincheck">サインチェック画面へ</Link>
+        <p>
+          メール認証がお済みでない方はこちら→ &nbsp;
+          <Link to="/signincheck">メール認証</Link>
+        </p>
       </Box>
     </SContainer>
   );
