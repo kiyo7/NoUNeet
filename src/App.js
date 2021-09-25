@@ -9,6 +9,7 @@ import { SignUp } from "./pages/SignUp";
 import { AuthProvider } from "./AuthService";
 import { LoggedInRoute } from "./LoggedInRoute";
 import { ResetPassword } from "./pages/ResetPassword";
+import { SignInCheck } from "./pages/SignInCheck";
 
 export const App = () => {
   return (
@@ -17,8 +18,9 @@ export const App = () => {
         <Switch>
           <LoggedInRoute exact path="/" component={Home}></LoggedInRoute>
           <Route exact path="/login" component={Login}></Route>
-          <Route exact path="/signup" component={SignUp}></Route>
+          <Route path="/signup" component={SignUp}></Route>
           <Route exact path="/resetpassword" component={ResetPassword}></Route>
+          <Route exact path="/signincheck" component={SignInCheck}></Route>
         </Switch>
       </Router>
     </AuthProvider>
