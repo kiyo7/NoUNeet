@@ -1,17 +1,14 @@
 //components
-import React from 'react';
+import React from "react";
 
-import { Header } from '../components/header/Header';
+import { Header } from "../components/header/Header";
+import { Tile } from "../companylayout/tile";
 
 export const Home = () => {
   return (
     <>
       <Header />
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
+      <Tile />
     </>
   );
 };
