@@ -18,7 +18,6 @@ import firebase from '../config/firebase';
 export const Login = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const handleSubmit = (e) => {
     e.preventDefault();
     firebase
@@ -115,6 +114,15 @@ export const Login = ({ history }) => {
         </p>
         <br />
         <br />
+        <Link to="/resetpassword">パスワードを忘れましたか？</Link>
+        <Button
+          fullwidth="true"
+          variant="contained"
+          color="secondary"
+          component={Link}
+          to="/signup"
+        >
+          ユーザー登録画面へ</Button>
         <Link to="/MapBox">Map</Link>
       </Box>
     </SContainer>
