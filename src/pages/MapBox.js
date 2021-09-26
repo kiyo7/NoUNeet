@@ -1,11 +1,22 @@
+import React, { Component } from 'react';
+import '../App.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
+import Calender from '../components/Calender';
+
+mapboxgl.accessToken =
+  'pk.eyJ1IjoiZnUtdGEyNTExIiwiYSI6ImNrdHc3azZwYzI3bWwybm8xaDZlYzNuYTAifQ.iF3783k67PmflH1wPU-_gw';
 class MapBox extends Component {
   componentDidMount() {
     this.map = new mapboxgl.Map({
       container: this.container,
       style: 'mapbox://styles/fu-ta2511/cktye8opm2jb319o4uwvugxgo',
-      center: [139.70048839, 35.68961569]
+      center: [139.70048839, 35.68961569],
+      zoom: 13,
+    });
     this.map.addControl(new mapboxgl.NavigationControl());
 
+    const html1 = `<h3>あばばば株式会社</h3>
             <span>-会社概要-</span>
             </br>
         <span>

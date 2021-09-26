@@ -8,7 +8,7 @@ import { Login } from './pages/Login';
 import { SignUp } from './pages/SignUp';
 import { AuthProvider } from './AuthService';
 import { LoggedInRoute } from './LoggedInRoute';
-import Map from './pages/MapBoo';
+import MapBox from './pages/MapBox';
 import { ResetPassword } from './pages/ResetPassword';
 import { SignInCheck } from './pages/SignInCheck';
 import { Profile } from './pages/ProfilePage/Profile';
@@ -26,7 +26,7 @@ export const App = () => {
           <Route path="/resetpassword" component={ResetPassword}></Route>
           <Route path="/signincheck" component={SignInCheck}></Route>
           <Route path="/signup" component={SignUp}></Route>
-          <Route path="/mapbox" component={Map}></Route>
+          <Route path="/mapbox" component={MapBox}></Route>
           <Route path="/profile" component={Profile}></Route>
           <Route
             exact

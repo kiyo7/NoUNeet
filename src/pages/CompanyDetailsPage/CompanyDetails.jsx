@@ -32,7 +32,7 @@ export const CompanyDetailPage = () => {
             </header>
 
             <p> {company.state[id].description} </p>
-            <p>企業のHP: {location.state.state[id].url}</p>
+            <p>Website : {location.state.state[id].url}</p>
 
             <h1 style={{ fontSize: '3rem' }}>関連企業</h1>
             <h3>Coming Soon...</h3>
