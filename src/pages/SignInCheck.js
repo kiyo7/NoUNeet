@@ -35,13 +35,13 @@ export const SignInCheck = () => {
     firebase
       .auth()
       .sendSignInLinkToEmail(email, actionCodeSettings)
-      .then(function () {
+      .then(function() {
         window.localStorage.setItem('emailForSignIn', email);
         console.log(window.localStorage.getItem('emailForSignIn'));
         console.log('succes');
         history.push('/');
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error.code);
         console.log(error.message);
         alert('無効な値です');
@@ -101,7 +101,7 @@ export const SignInCheck = () => {
   );
 };
 const SContainer = styled.div`
-  background-image: url(${background});
+  background-image: url('https://www.beiz.jp/images_M/sky/sky_00359.jpg');
   max-width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;

@@ -133,7 +133,7 @@ export const SignUp = () => {
   );
 };
 const SContainer = styled.div`
-  background-image: url(${background});
+  background-image: url('https://www.beiz.jp/images_M/sky/sky_00359.jpg');
   max-width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
