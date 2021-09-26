@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../AuthService";
+import { media } from "../../util/MediaQuery";
 import Sample from "./EditPage/Photo/sample";
 
 import Radio from "@mui/material/Radio";
@@ -85,7 +86,7 @@ const ProfileMain = () => {
 const SProfile = styled.div`
   width: 50%;
   padding: 3%;
-  margin-left: 23%;
+  margin-left: 21%;
   border: dashed;
   border-width: 7px;
 `;
@@ -103,9 +104,14 @@ const SImageList = styled.h2`
   display: flex;
   align-items: center;
   width: 28%;
+  text-align: center;
   padding: 1%;
   border-style: solid;
   border-radius: 50px;
+  ${media.tablet`  font-size:20px`}
+  ${media.tablet`  width:35%`}
+  ${media.phone`  font-size:18px`}
+  ${media.phone`  width:39%`}
 `;
 
 const SIcon = styled.div`
@@ -125,12 +131,17 @@ const SNameList = styled.h2`
   padding: 1%;
   border-style: solid;
   border-radius: 50px;
+  ${media.tablet`  font-size:20px`}
+  ${media.tablet`  width:35%`}
+  ${media.phone`  font-size:18px`}
+  ${media.phone`  width:39%`}
 `;
 
 const SName = styled.h2`
   width: 40%;
   display: flex;
   align-items: center;
+  ${media.tablet`  font-size:18px`}
 `;
 
 const SSpan = styled.p`
@@ -154,6 +165,13 @@ const SJobList = styled.h2`
   padding: 1%;
   border-style: solid;
   border-radius: 50px;
+  ${media.tablet`  font-size:20px`}
+  ${media.tablet`  width:20%`}
+  ${media.tablet`  padding-top:7%`}
+  ${media.phone`  font-size:18px`}
+  ${media.phone`  width:39%`}
+  ${media.tablet`  padding-top:11%`}
+
 `;
 
 export default ProfileMain;

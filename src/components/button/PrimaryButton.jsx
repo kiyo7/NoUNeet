@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PrimaryButton = (props) => {
-  const { width = "300px", height = "130px", onClick, children } = props;
+  const { width = "100%", height = "100%", onClick, children } = props;
   return (
     <>
       <SButton
