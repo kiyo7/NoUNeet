@@ -1,6 +1,6 @@
 // lib
 import React, { useState } from "react";
-import { Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import firebase from "../config/firebase";
 
@@ -11,7 +11,6 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 
 // components
-import background from "../images/background.jpeg";
 
 export const ResetPassword = () => {
   const [email, setEmail] = useState("");
@@ -76,7 +75,7 @@ export const ResetPassword = () => {
   );
 };
 const SContainer = styled.div`
-  background-image: url(${background});
+  background-image: url("https://www.beiz.jp/images_M/sky/sky_00359.jpg");
   max-width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
