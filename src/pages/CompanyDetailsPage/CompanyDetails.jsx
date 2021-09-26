@@ -1,18 +1,22 @@
-import styled from "styled-components";
-import React from "react";
+import styled from 'styled-components';
+import React from 'react';
 
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useHistory } from 'react-router-dom';
 
-import { Header } from "../../components/header/Header";
-import { PrimaryButton } from "../../components/button/PrimaryButton";
-import Chatbot from "../CompanyCha/chat";
+import { Header } from '../../components/header/Header';
+import { PrimaryButton } from '../../components/button/PrimaryButton';
+import Chatbot from '../CompanyCha/chat';
+
 export const CompanyDetailPage = () => {
   const location = useLocation();
+  const history = useHistory();
+  console.log(history);
+
+  const company = location.state;
 
   const { id } = useParams();
 
-  const log = () => console.log("MapBoxへ");
-  const chat = () => console.log("chatpageへ");
+  const chat = () => console.log('chatpageへ');
   return (
     <div>
       <Header />
@@ -24,19 +28,21 @@ export const CompanyDetailPage = () => {
         <SMainContents>
           <SArticle>
             <header>
-              <h2 style={{ textAlign: "center" }}>
-                {location.state.state[id].name}
-              </h2>
+              <h2 style={{ textAlign: 'center' }}>{company.state[id].name}</h2>
             </header>
 
-            <p> {location.state.state[id].description} </p>
+            <p> {company.state[id].description} </p>
             <p>企業のHP: {location.state.state[id].url}</p>
 
-            <h1 style={{ fontSize: "3rem" }}>関連企業</h1>
+            <h1 style={{ fontSize: '3rem' }}>関連企業</h1>
             <h3>Coming Soon...</h3>
             <SButtonWrapper>
               <SButtonMargin>
-                <PrimaryButton onClick={log}>企業の場所を見る</PrimaryButton>
+                <PrimaryButton
+                  onClick={() => history.push('/mapbox', { state: company })}
+                >
+                  企業の場所を見る
+                </PrimaryButton>
               </SButtonMargin>
               <SButtonMargin>
                 <PrimaryButton onClick={chat}>企業と話す</PrimaryButton>
@@ -47,7 +53,7 @@ export const CompanyDetailPage = () => {
           <SAside>
             <SSideContentsWrapper>
               <SImageWrapper>
-                <SImage src={location.state.state[id].image} alt="aaaa" />
+                <SImage src={company.state[id].image} alt="aaaa" />
               </SImageWrapper>
             </SSideContentsWrapper>
           </SAside>
@@ -90,7 +96,6 @@ const SAside = styled.aside`
 `;
 
 const SImageWrapper = styled.div`
-  /* background-color: black; */
   width: 100%;
   height: 400px;
   background-size: cover;
