@@ -1,14 +1,14 @@
-import React, { useEffect, useCallback } from 'react';
-import { useCompanyAllGet } from '../../hooks/useCompanyAllGet';
-import { useSelectCompany } from '../../hooks/useSelectCompany';
-import styled from 'styled-components';
+import React, { useEffect, useCallback } from "react";
+import { useCompanyAllGet } from "../../hooks/useCompanyAllGet";
+import { useSelectCompany } from "../../hooks/useSelectCompany";
+import styled from "styled-components";
 
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
-import { CompanyCards } from './CompanyCard';
+import { CompanyCards } from "./CompanyCard";
 
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const MainPage = () => {
   const { getCompanys, loading, companys } = useCompanyAllGet();
@@ -28,9 +28,10 @@ export const MainPage = () => {
 
   return (
     <>
+      <SH1>企業一覧</SH1>
       {loading ? (
         <Backdrop
-          sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
           open={loading}
         >
           <CircularProgress color="inherit" />
@@ -53,18 +54,20 @@ export const MainPage = () => {
   );
 };
 
+const SH1 = styled.h1`
+  text-align: center;
+  margin-bottom: 0;
+`;
+
 const SContentsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   gap: 3em;
-  padding: 8%;
+  padding: 6%;
   text-align: center;
 `;
 
 const SNavItem = styled.div`
-  width: 600px;
-  height: 500px;
-  margin-bottom: 20px;
-  box-shadow: 100px;
+  width: 98%;
 `;

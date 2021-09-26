@@ -13,12 +13,7 @@ export const Profile = () => {
     </SContainer>
   );
 };
-const SContainer = styled.div`
-  max-width: 100vw;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-`;
+const SContainer = styled.div``;
 
 const SProfileMain = styled.div`
   height: 85%;

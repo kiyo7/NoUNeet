@@ -76,11 +76,10 @@ const SMainContents = styled.div`
   margin-bottom: 70px;
   padding: 2% 6%;
   display: flex;
-  justify-content: space-between;
 `;
 
 const SArticle = styled.article`
-  width: 58%;
+  width: 70%;
 `;
 
 const SSideContentsWrapper = styled.div``;
@@ -90,22 +89,15 @@ const SAside = styled.aside`
 `;
 
 const SImageWrapper = styled.div`
-  /* background-color: black; */
   width: 100%;
-  height: 400px;
-  background-size: cover;
 `;
 
 const SImage = styled.img`
   width: 100%;
-  height: 100%;
   border-radius: 30px;
 `;
 
 const SButtonWrapper = styled.div`
-  text-align: center;
-  margin-top: 3%;
-  margin-left: 0;
   display: flex;
 `;
 
