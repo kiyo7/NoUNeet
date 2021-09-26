@@ -28,14 +28,15 @@ export const CompanyDetailPage = () => {
         <SMainContents>
           <SArticle>
             <header>
-              <h2 style={{ textAlign: 'center' }}>{company.state[id].name}</h2>
+              <h2 style={{ textAlign: 'center', fontFamily: 'MS P明朝' }}>
+                {company.state[id].name}
+              </h2>
             </header>
 
             <p> {company.state[id].description} </p>
+            <p> {company.state[id].description} </p>
             <p>Website : {location.state.state[id].url}</p>
 
-            <h1 style={{ fontSize: '3rem' }}>関連企業</h1>
-            <h3>Coming Soon...</h3>
             <SButtonWrapper>
               <SButtonMargin>
                 <PrimaryButton
@@ -76,6 +77,8 @@ const STitleWrapper = styled.div`
 
 const SPageTitle = styled.h3`
   font-size: 1.5rem;
+  font-family: sans-serif;
+  color: #647878;
 `;
 
 const SMainContents = styled.div`

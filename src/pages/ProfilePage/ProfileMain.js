@@ -1,19 +1,19 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../../AuthService";
-import { media } from "../../util/MediaQuery";
-import Sample from "./EditPage/Photo/sample";
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../../AuthService';
+import { media } from '../../util/MediaQuery';
+import Sample from './EditPage/Photo/sample';
 
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ProfileMain = () => {
   const user = useContext(AuthContext);
   console.log(user.displayName);
-  const [value, setValue] = useState("回答しない");
+  const [value, setValue] = useState('回答しない');
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -38,7 +38,9 @@ const ProfileMain = () => {
           <SNameList>
             ユーザー名
             <br />
-            <SSpan>(※変更不可)</SSpan>
+            <SSpan>
+              (<span style={{ color: 'red' }}>※</span>変更不可)
+            </SSpan>
           </SNameList>
           <SName>{user.displayName}</SName>
         </SProfileName>
@@ -93,6 +95,8 @@ const SProfile = styled.div`
 
 const STitle = styled.h1`
   text-align: center;
+  color: #647878;
+  font-family: sans-serif;
 `;
 
 const SProfileImage = styled.div`
